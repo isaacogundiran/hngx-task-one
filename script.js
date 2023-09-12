@@ -17,10 +17,10 @@ const daysOfWeek = [
   fetch("https://worldtimeapi.org/api/ip")
     .then((response) => response.json())
     .then((data) => {
-      const utcTime = new Date(data.utc_datetime).toUTCString();
+      const utcTimeMilliseconds = new Date(data.utc_datetime).getTime();
       document.getElementById(
         "currentUTCTime"
-      ).textContent = `Current UTC Time: ${utcTime}`;
+      ).textContent = `Current UTC Time: ${utcTimeMilliseconds}`;
     })
     .catch((error) => {
       console.error("Error fetching UTC time:", error);
